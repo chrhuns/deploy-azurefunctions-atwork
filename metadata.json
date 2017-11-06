@@ -1,0 +1,7 @@
+{
+  "itemDisplayName": "Provision a atwork azure function app",
+  "description": "This template provisions a function app on a dynamic hosting plan, meaning it will be run on demand and billed per execution.",
+  "summary": "Provision a function app on a dynamic hosting plan",
+  "githubUsername": "chrhuns",
+  "dateUpdated": "2017-11-06"
+}
