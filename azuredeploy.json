@@ -136,6 +136,33 @@
         "branch": "[parameters('branch')]",
         "IsManualIntegration": true
       }
-    }]
+    },
+    {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[variables('functionAppName')]"
+    ],
+    "tags": {
+        "displayName": "config-app"
+    },
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.9",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "fileUris": [
+                "https://github.com/chrhuns/deploy-azurefunctions-atwork/blob/master/scripts/send-appname.ps1"
+            ]
+        },
+        "protectedSettings": {
+           "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File send-appname.ps1 -appname ',variables('functionAppName'))]"
+        }
+    }
+}
+    ]
   }]
 }
