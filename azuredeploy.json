@@ -136,8 +136,8 @@
         "branch": "[parameters('branch')]",
         "IsManualIntegration": true
       }
-    },
-    {
+    }]
+  },{
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
@@ -160,9 +160,12 @@
         },
         "protectedSettings": {
            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File send-appname.ps1 -appname ',variables('functionAppName'))]"
+            }
         }
-    }
+    }]
 }
-    ]
-  }]
-}
+
+
+
+
+
